@@ -5,6 +5,7 @@ describe Enumerable do
   let (:ans) { [] }
   let (:bool) { [true, false, nil] }
   let (:str) { %w[Dog Cat Mouse] }
+  let (:str1) {["Dog", "Cat", 1, 3, "Mouse", 4]}
   let (:my_hash) { { 'cat' => 0, 'dog' => 1, 'wombat' => 2} }
 
   context 'my_each' do
@@ -69,6 +70,32 @@ describe Enumerable do
 
     it 'It checks if the length of all element is less than 7 ' do
       expect(str.my_all? {|x| x.length < 7 }).to eql(true)
+    end
+  end
+
+  context 'my_any?' do
+    it 'It checks if any number are greater than 4 or not' do
+      expect(arr.my_any? { |x| x > 4 }).to eql(false)
+    end
+
+    it 'It checks if any element inside the array are Numeric' do
+      expect(str1.my_any?(Numeric)).to eql(true)
+    end
+
+    it 'It checks if all element inside the array are String' do
+      expect(str1.my_any?(String)).to eql(true)
+    end
+
+    it 'It checks if any element has `o` ' do
+      expect(str.my_any?(/o/)).to eql(true)
+    end
+
+    it 'It checks if the length of any element is less than 7 ' do
+      expect(str.my_any? {|x| x.length < 4 }).to eql(true)
+    end
+
+    it 'It checks if one of the element is nil' do
+      expect(bool.my_any? {|x| x == nil }).to eql(true)
     end
   end
 end
