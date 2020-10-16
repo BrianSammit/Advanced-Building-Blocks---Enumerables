@@ -20,13 +20,5 @@ describe Enumerable do
     it 'if no block is given, returns an enumerator' do
       expect(arr.my_each).to be_an Enumerator
     end
-  end
-
-  context 'my_each_with_index' do
-    it 'It goes through the array and index' do
-      arr.my_each_with_index {|x, y| ans << x => y }
-      expect(ans).to eql([1=>0, 2=>1, 3=>2, 4=>3])
-    end
-  end
-  
+  end  
 end
