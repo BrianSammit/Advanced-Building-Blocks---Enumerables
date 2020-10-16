@@ -90,7 +90,7 @@ describe Enumerable do
       expect(str.my_any?(/o/)).to eql(true)
     end
 
-    it 'It checks if the length of any element is less than 7 ' do
+    it 'It checks if the length of any element is less than 4 ' do
       expect(str.my_any? { |x| x.length < 4 }).to eql(true)
     end
 
@@ -122,6 +122,20 @@ describe Enumerable do
 
     it 'It checks if none of the elements is nil' do
       expect(bool.my_none? { |x| x == nil? }).to eql(false)
+    end
+  end
+
+  context 'my_count' do
+    it 'It returns the number of items in the array' do
+      expect(arr.my_count).to eql(4)
+    end
+
+    it 'It returns the number of items that match the condition' do
+      expect(arr.my_count(2)).to eql(1)
+    end
+
+    it 'It return the number that match the block given' do
+      expect(arr.my_count { |x| x%2==0 }).to eql(2)
     end
   end
 end
