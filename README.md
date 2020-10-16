@@ -17,15 +17,13 @@ We duplicated #each, #each_with_index, #select, #all, #any, #none, #count, #map 
 
 👤 **Brian Sammit Cruz Rodriguez**
 
-Github: [@BrianSammit](https://github.com/BrianSammit)
-
-Twitter: [@CruzSammit](https://twitter.com/CruzSammit)
-
-Linkedin: [Brian Sammit](https://www.linkedin.com/in/brian-sammit-cruz-rodriguez-5877551a8/)
+- Github: [@BrianSammit](https://github.com/BrianSammit)
+- Twitter: [@CruzSammit](https://twitter.com/CruzSammit)
+- Linkedin: [Brian Sammit](https://www.linkedin.com/in/brian-sammit-cruz-rodriguez-5877551a8/)
 
 👤 **Mohammed Al-Asfar**
 
-Github: [@elasfarc](https://github.com/elasfarc)
+- Github: [@elasfarc](https://github.com/elasfarc)
 
 👤 **Guillain Bisimwa**
 
