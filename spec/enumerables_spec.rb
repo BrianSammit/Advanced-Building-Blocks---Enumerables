@@ -174,9 +174,16 @@ describe Enumerable do
       expect(str.my_inject {|memo, word|
         memo.length > word.length ? memo : word }).to eql("Mouse")
     end
-    
-    it 'it checks the longest wornd in the array' do
-      expect(str.my_inject).to be_an LocalJumpError
+
+    # it 'it checks the longest wornd in the array' do
+    #   expect(str.my_inject).to be_an LocalJumpError
+    # end
+  end
+
+  context 'multiply_els' do
+    it 'Multiplies all the elements of the array together' do
+      ans = multiply_els arr
+      expect(ans).to eql(24)
     end
   end
 end
