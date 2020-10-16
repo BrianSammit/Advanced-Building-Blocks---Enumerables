@@ -171,12 +171,22 @@ describe Enumerable do
     end
 
     it 'it checks the longest wornd in the array' do
-      expect(str.my_inject {|memo, word|
-        memo.length > word.length ? memo : word }).to eql("Mouse")
+      expect(str.my_inject { |memo, word|
+        memo.length > word.length ? memo : word } ).to eql('Mouse')
     end
-    
-    it 'it checks the longest wornd in the array' do
-      expect(str.inject).to raise_error(LocalJumpError, "no block given")
+
+    it 'Combines all elements of enum by applying a binary operation' do
+      operation = proc { |sum, n| sum + n }
+      ans = arr.my_inject(&operation)
+      expect(ans).to eql(10)
+    end
+
+    it 'Multiplies when * Symbol is specified without an initial value' do
+      expect(arr.my_inject(:*)).to eql(24)
+    end
+
+    it 'Add when + Symbol is specified within an initial value' do
+      expect(arr.my_inject(20, :+)).to eql(30)
     end
   end
 
