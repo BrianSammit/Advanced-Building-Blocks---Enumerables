@@ -5,8 +5,8 @@ describe Enumerable do
   let (:ans) { [] }
   let (:bool) { [true, false, nil] }
   let (:str) { %w[Dog Cat Mouse] }
-  let (:str1) {["Dog", "Cat", 1, 3, "Mouse", 4]}
-  let (:my_hash) { { 'cat' => 0, 'dog' => 1, 'wombat' => 2} }
+  let (:str1) { ['Dog', 'Cat', 1, 3, 'Mouse', 4]}
+  let (:my_hash) { { 'cat' => 0, 'dog' => 1, 'wombat' => 2 } }
 
   context 'my_each' do
     it 'It goes through the array' do
@@ -91,11 +91,37 @@ describe Enumerable do
     end
 
     it 'It checks if the length of any element is less than 7 ' do
-      expect(str.my_any? {|x| x.length < 4 }).to eql(true)
+      expect(str.my_any? { |x| x.length < 4 }).to eql(true)
     end
 
     it 'It checks if one of the element is nil' do
-      expect(bool.my_any? {|x| x == nil }).to eql(true)
+      expect(bool.my_any? { |x| x == nil? }).to eql(true)
+    end
+  end
+
+  context 'my_none' do
+    it 'It checks if none of the numbers are greater than 4 or not' do
+      expect(arr.my_none? { |x| x > 4 }).to eql(true)
+    end
+
+    it 'It checks if none of the elements inside the array are Numeric' do
+      expect(str1.my_none?(Numeric)).to eql(false)
+    end
+
+    it 'It checks if none of the elements inside the array are String' do
+      expect(str1.my_none?(String)).to eql(false)
+    end
+
+    it 'It checks if none of the elements has `o` ' do
+      expect(str.my_none?(/o/)).to eql(false)
+    end
+
+    it 'It checks if the length of none of the element is less than 7 ' do
+      expect(str.my_none? { |x| x.length < 7 }).to eql(false)
+    end
+
+    it 'It checks if none of the elements is nil' do
+      expect(bool.my_none? { |x| x == nil? }).to eql(false)
     end
   end
 end
