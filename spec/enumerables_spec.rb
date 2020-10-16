@@ -38,4 +38,15 @@ describe Enumerable do
       expect(my_hash.my_each_with_index).to be_an Enumerator
     end
   end
+
+  context 'my_select' do
+    it 'It select the item with the condition given' do
+      arr.my_select {|x| ans << x if x.even?}
+      expect(ans).to eql([2, 4])
+    end
+
+    it 'if no block is given, returns an enumerator' do
+      expect(arr.my_select).to be_an Enumerator
+    end
+  end
 end
