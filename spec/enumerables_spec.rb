@@ -49,4 +49,26 @@ describe Enumerable do
       expect(arr.my_select).to be_an Enumerator
     end
   end
+
+  context 'my_all?' do
+    it 'It checks if all numbers are greater than 4 or not' do
+      expect(arr.my_all? { |x| x > 4 }).to eql(false)
+    end
+
+    it 'It checks if all element inside the array are Numeric' do
+      expect(arr.my_all?(Numeric)).to eql(true)
+    end
+
+    it 'It checks if all element inside the array are String' do
+      expect(arr.my_all?(String)).to eql(false)
+    end
+
+    it 'It checks if all element has `o` ' do
+      expect(str.my_all?(/o/)).to eql(false)
+    end
+
+    it 'It checks if the length of all element is less than 7 ' do
+      expect(str.my_all? {|x| x.length < 7 }).to eql(true)
+    end
+  end
 end
