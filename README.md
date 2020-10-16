@@ -1,4 +1,4 @@
-# Advanced-Building-Blocks---Enumerables
+# Enumerables_RSpec
 
 This project consist on implement our own version of Ruby’s enumerable methods.
 We duplicated #each, #each_with_index, #select, #all, #any, #none, #count, #map and #inject.
