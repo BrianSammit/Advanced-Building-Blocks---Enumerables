@@ -160,4 +160,19 @@ describe Enumerable do
       expect(ans).to eql([:Dog, :Cat, :Mouse])
     end
   end
+
+  context 'my_inject' do
+    it 'It checks if the sum of the array is equal to 10' do
+      expect(arr.my_inject { |sum, n| sum + n }).to eql(10)
+    end
+
+    it 'It checks if the multiply of the array is equal to 24' do
+      expect(arr.my_inject(1) { |product, n| product * n }).to eql(24)
+    end
+
+    it 'it checks the longest wornd in the array' do
+      expect(str.my_inject {|memo, word|
+        memo.length > word.length ? memo : word }).to eql("Mouse")
+    end
+  end
 end
