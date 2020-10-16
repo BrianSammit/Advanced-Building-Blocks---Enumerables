@@ -26,12 +26,12 @@ describe Enumerable do
 
   context 'my_each_with_index' do
     it 'It goes through the my_hash (value)' do
-      my_hash.my_each_with_index { |key, value| ans << value.to_s }
+      my_hash.my_each_with_index { |_key, value| ans << value.to_s }
       expect(ans).to eql(%w[0 1 2])
     end
 
     it 'It goes through the my_hash (value * 2)' do
-      my_hash.my_each_with_index { |key, value| ans << (value * 2).to_s }
+      my_hash.my_each_with_index { |_key, value| ans << (value * 2).to_s }
       expect(ans).to eql(%w[0 2 4])
     end
 
@@ -42,7 +42,7 @@ describe Enumerable do
 
   context 'my_select' do
     it 'It select the item with the condition given' do
-      arr.my_select {|x| ans << x if x.even?}
+      arr.my_select { |x| ans << x if x.even?}
       expect(ans).to eql([2, 4])
     end
 
@@ -135,7 +135,29 @@ describe Enumerable do
     end
 
     it 'It return the number that match the block given' do
-      expect(arr.my_count { |x| x%2==0 }).to eql(2)
+      expect(arr.my_count { |x| (x % 2).zero? }).to eql(2)
+    end
+  end
+
+  context 'my_map' do
+    it 'It return all element converted to upcase' do
+      str.my_map { |s| ans << s.upcase }
+      expect(ans).to eql(%w[DOG CAT MOUSE])
+    end
+
+    it 'Doubling numbers' do
+      arr.my_map { |n| ans << n * 2 }
+      expect(ans).to eql([2, 4, 6, 8])
+    end
+
+    it 'Converts hash keys to symbols' do
+      my_hash.my_map { |k, v| ans << [k.to_sym, v] }
+      expect(ans).to eql([[:cat, 0], [:dog, 1], [:wombat, 2]])
+    end
+
+    it 'Converts array of strings to array of symbols' do
+      str.my_map { |s| ans << s.to_sym}
+      expect(ans).to eql([:Dog, :Cat, :Mouse])
     end
   end
 end
