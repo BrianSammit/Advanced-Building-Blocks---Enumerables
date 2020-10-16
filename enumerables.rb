@@ -163,7 +163,7 @@ module Enumerable
   end
 
   def my_inject(*argu)
-    raise LocalJumpError, 'NO BLOCK OR ARGUMENT GIVEN!' if !block_given? && argu.empty?
+    raise LocalJumpError, 'no block given' if !block_given? && argu.empty?
 
     converted_array = to_a
     n = converted_array.length
