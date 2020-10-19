@@ -13,6 +13,15 @@ We duplicated #each, #each_with_index, #select, #all, #any, #none, #count, #map 
 
 [Issue link](https://github.com/BrianSammit/Enumerables_RSpec/issues)
 
+## How to run the RSpec test
+
+- You need to have the RSpec installed in you computer if you don't have it follow the steps.
+
+Boot up your terminal and punch in gem install rspec to install RSpec. Once that’s done, you can verify your version of RSpec with rspec --version, which will output the current version of each of the packaged gems. Take a minute also to hit rspec --help and look through the various options available.
+
+- cd into the project and open a terminal.
+- In the teminal just write rspec to run the tests.
+
 ## Authors
 
 👤 **Brian Sammit Cruz Rodriguez**
