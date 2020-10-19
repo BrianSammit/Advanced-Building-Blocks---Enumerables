@@ -1,12 +1,12 @@
 require './enumerables'
 
 describe Enumerable do
-  let (:arr) { [1, 2, 3, 4] }
-  let (:ans) { [] }
-  let (:bool) { [true, false, nil] }
-  let (:str) { %w[Dog Cat Mouse] }
-  let (:str1) { ['Dog', 'Cat', 1, 3, 'Mouse', 4]}
-  let (:my_hash) { { 'cat' => 0, 'dog' => 1, 'wombat' => 2 } }
+  let(:arr) { [1, 2, 3, 4] }
+  let(:ans) { [] }
+  let(:bool) { [true, false, nil] }
+  let(:str) { %w[Dog Cat Mouse] }
+  let(:str1) { ['Dog', 'Cat', 1, 3, 'Mouse', 4] }
+  let(:my_hash) { { 'cat' => 0, 'dog' => 1, 'wombat' => 2 } }
 
   context 'my_each' do
     it 'It goes through the array' do
@@ -42,7 +42,7 @@ describe Enumerable do
 
   context 'my_select' do
     it 'It select the item with the condition given' do
-      arr.my_select { |x| ans << x if x.even?}
+      arr.my_select { |x| ans << x if x.even? }
       expect(ans).to eql([2, 4])
     end
 
@@ -69,7 +69,7 @@ describe Enumerable do
     end
 
     it 'It checks if the length of all element is less than 7 ' do
-      expect(str.my_all? {|x| x.length < 7 }).to eql(true)
+      expect(str.my_all? { |x| x.length < 7 }).to eql(true)
     end
   end
 
@@ -156,8 +156,8 @@ describe Enumerable do
     end
 
     it 'Converts array of strings to array of symbols' do
-      str.my_map { |s| ans << s.to_sym}
-      expect(ans).to eql([:Dog, :Cat, :Mouse])
+      str.my_map { |s| ans << s.to_sym }
+      expect(ans).to eql(%i[Dog Cat Mouse])
     end
   end
 
@@ -171,8 +171,9 @@ describe Enumerable do
     end
 
     it 'it checks the longest wornd in the array' do
-      expect(str.my_inject { |memo, word|
-        memo.length > word.length ? memo : word } ).to eql('Mouse')
+      expect(str.my_inject do |memo, word|
+               memo.length > word.length ? memo : word
+             end).to eql('Mouse')
     end
 
     it 'Combines all elements of enum by applying a binary operation' do
